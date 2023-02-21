@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './App.css';
 import { Card, Post } from './components/Card';
 import { Form } from './components/Form';
@@ -7,7 +6,8 @@ import { useData } from './hooks/useData';
 const POSTS_URL = 'https://dummyjson.com/posts';
 function App() {
   // Phase3: Fetch data from server and replace the static list
-  const { data, setData, isLoading, isError } = useData(POSTS_URL);
+  const { data, setData, isLoading, isError } =
+    useData<{ posts: Post[] }>(POSTS_URL);
   const posts = data ? data.posts : [];
   const handleSubmit = (post: Post) => {
     setData({ ...data, posts: [post, ...posts] });

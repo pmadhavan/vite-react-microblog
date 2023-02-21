@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-export const useData = (url: string) => {
-  const [data, setData] = useState<any>(null); // Should use generic type, instead of any, To-Do why T is undefined in this env
+export const useData = <T>(url: string) => {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
